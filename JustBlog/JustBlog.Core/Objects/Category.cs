@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JustBlog.Core
 {
-    public class Class1
+    class Category
     {
     }
 }
