@@ -18,6 +18,11 @@ namespace JustBlog
                 "{controller}/{action}/{id}",
                 new { controller = "Blog", action = "Posts", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                "Category",
+                "Category/{category}",
+                new { controller = "Blog", action = "Category" }
+            );
         }
     }
 }
