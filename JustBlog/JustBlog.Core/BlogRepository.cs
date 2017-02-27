@@ -21,6 +21,7 @@ namespace JustBlog.Core
             _session = session;
         }
 
+        //return the latest published posts based on pagination values
         public IList<Post> Posts(int pageNo, int pageSize)
         {
             var posts = _session.Query<Post>()
@@ -40,10 +41,13 @@ namespace JustBlog.Core
                   .ToList();
         }
 
+        //return the total number of published posts
         public int TotalPosts()
         {
             return _session.Query<Post>().Where(p => p.Published).Count();
         }
+
+        //returns the latest posts belongs to a category based on the slug(UrlSlug) and pagination values
         public IList<Post> PostsForCategory(string categorySlug, int pageNo, int pageSize)
         {
             var posts = _session.Query<Post>()
@@ -63,6 +67,7 @@ namespace JustBlog.Core
                           .ToList();
         }
 
+        //returns the total number of posts belongs to the category
         public int TotalPostsForCategory(string categorySlug)
         {
             return _session.Query<Post>()
@@ -70,6 +75,7 @@ namespace JustBlog.Core
                         .Count();
         }
 
+        //returns the category instance
         public Category Category(string categorySlug)
         {
             return _session.Query<Category>()
