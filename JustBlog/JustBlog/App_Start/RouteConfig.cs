@@ -33,6 +33,17 @@ namespace JustBlog
                 "Archive/{year}/{month}/{title}",
                 new { controller = "Blog", action = "Post" }
             );
+            routes.MapRoute(
+                "Login",
+                "Login",
+                new { controller = "Admin", action = "Login" }
+            );
+            // default route
+            routes.MapRoute(
+                "Action",
+                "{action}",
+                new { controller = "Blog", action = "Posts" }
+            );
         }
     }
 }
